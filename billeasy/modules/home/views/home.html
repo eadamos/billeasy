@@ -1,0 +1,16 @@
+<h2>Hello, {{name}}!</h2>
+<h3 ng-show="bills.length==0">You have no pending bills.</h3>
+<h3 ng-show="bills.length>0">Your unpaid bills are:</h3>
+<ul ng-repeat="bill in bills track by $index">
+	<input type="checkbox" ng-model="bill.to_be_paid"> {{bill.biller_name}} ({{bill.billing_date}}): {{bill.amount}}
+</ul>
+<br>
+<div style="float:left; padding-right:10px;">
+	<button class="btn btn-danger" ng-click="pay()" >Pay</button> 
+</div>
+
+<h4><span href='' ng-show="total()==0">(no bill selected)</a></h4>
+<h4><span href='' ng-show="total()>0">(Total: {{total()}})</a></h4>
+<br>
+<br>
+<a href='' ng-click="logout()">Logout</a>
